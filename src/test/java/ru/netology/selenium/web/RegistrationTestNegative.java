@@ -204,7 +204,7 @@ public class RegistrationTestNegative {
     void userRegistrationForNonExistentNumber() {
         $x("//span[@data-test-id='city']//input").setValue("Москва");
         $x("//span[@data-test-id='date']//input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
-        $x("//td[@class='calendar__day' and @data-day='1705438800000'] ").click();
+        $x("//td[@class='calendar__day' and text()='17'] ").click();
         String data = $x("//span[@data-test-id='date'] //input[@type='tel']").val();
         $x("//span[@data-test-id='name']//input").setValue("Иванов-аглы Дмитрий");
         $x("//span[@data-test-id='phone']//input").setValue("+70000000000");

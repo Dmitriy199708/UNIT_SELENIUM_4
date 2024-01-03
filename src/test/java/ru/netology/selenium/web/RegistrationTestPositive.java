@@ -84,7 +84,7 @@ class RegistrationTestPositive {
         $x("//span[@data-test-id='city']//input").setValue("Москва");
         $x("//span[@data-test-id='date']//input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
         $x("//span[@data-test-id='date'] //span[@class='icon-button__content']").click();
-        $x("//td[@class='calendar__day' and @data-day='1705438800000'] ").click();
+        $x("//td[@class='calendar__day' and text()='17']").click();
         String data = $x("//span[@data-test-id='date'] //input[@type='tel']").val();
         $x("//span[@data-test-id='name']//input").setValue("Иванов-Иванович Иван");
         $x("//span[@data-test-id='phone']//input").setValue("+79200077999");
