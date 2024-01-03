@@ -3,6 +3,7 @@ package ru.netology.selenium.web;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,9 +27,21 @@ class RegistrationTestPositive {
     private String generateDate(int addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
+    private WebDriver driver;
+
+    @BeforeAll
+    public static void setupAll() {
+        WebDriverManager.chromedriver().setup();
+    }
 
     @BeforeEach
     void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        options.addArguments("window-size=1800x900");
+        driver = new ChromeDriver(options);
         openSite();
     }
 
