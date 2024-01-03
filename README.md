@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/u7luxrd1v3wignd7?svg=true)](https://ci.appveyor.com/project/Dmitriy199708/unit-hw-3-edit)
+[![Build status](https://ci.appveyor.com/api/projects/status/1infrd3a2aev713m?svg=true)](https://ci.appveyor.com/project/Dmitriy199708/unit-selenium-4)
 
 # Домашнее задание к занятию «2.2. Selenide»
 
