@@ -18,36 +18,19 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import static com.codeborne.selenide.Selenide.*;
-import static java.lang.String.valueOf;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 class RegistrationTestPositive {
 
     private String generateDate(int addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
-    private WebDriver driver;
-
-    @BeforeAll
-    public static void setupAll() {
-        WebDriverManager.chromedriver().setup();
-    }
 
     @BeforeEach
     void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        options.addArguments("window-size=1800x900");
-        driver = new ChromeDriver(options);
-        openSite();
-    }
-
-    void openSite() {
         open("http://localhost:9999");
     }
+
 
     @Test
     void shouldRegisterByAccountNumberDOMModification() {

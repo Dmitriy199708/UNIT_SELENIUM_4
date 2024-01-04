@@ -24,25 +24,9 @@ public class RegistrationTestNegative {
     private String generateDate(int addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
-    private WebDriver driver;
-
-    @BeforeAll
-    public static void setupAll() {
-        WebDriverManager.chromedriver().setup();
-    }
 
     @BeforeEach
     void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        options.addArguments("window-size=1800x900");
-        driver = new ChromeDriver(options);
-        openSite();
-    }
-
-    void openSite() {
         open("http://localhost:9999");
     }
 
@@ -108,7 +92,7 @@ public class RegistrationTestNegative {
     void userRegistrationWithDateInmmddyyFormat() {
         $x("//span[@data-test-id='city']//input").setValue("Москва");
         $x("//span[@data-test-id='date']//input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
-        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("20.01.24");
+        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("21.01.24");
         $x("//span[@data-test-id='name']//input").setValue("Иванов-Иванович Иван");
         $x("//span[@data-test-id='phone']//input").setValue("+79200077999");
         $x("//label[@data-test-id='agreement']").click();
@@ -163,7 +147,7 @@ public class RegistrationTestNegative {
     void registeringUserWitNameInLatin() {
         $x("//span[@data-test-id='city']//input").setValue("Москва");
         $x("//span[@data-test-id='date']//input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
-        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("20.01.2024");
+        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("23.01.2024");
         $x("//span[@data-test-id='name']//input").setValue("Gdergv");
         $x("//span[@data-test-id='phone']//input").setValue("+79200077999");
         $x("//label[@data-test-id='agreement']").click();
@@ -177,7 +161,7 @@ public class RegistrationTestNegative {
     void registeringUserWithAnEmptyName() {
         $x("//span[@data-test-id='city']//input").setValue("Москва");
         $x("//span[@data-test-id='date']//input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
-        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("20.01.2024");
+        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("24.01.2024");
         $x("//span[@data-test-id='phone']//input").setValue("+79200077999");
         $x("//label[@data-test-id='agreement']").click();
         $x("//span[@class='button__text']").click();
@@ -190,8 +174,8 @@ public class RegistrationTestNegative {
     void registeringUserWithPhoneNumberStartingWith8() {
         $x("//span[@data-test-id='city']//input").setValue("Москва");
         $x("//span[@data-test-id='date']//input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
-        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("20.01.2024");
-        $x("//span[@data-test-id='name']//input").setValue("Иванов-аглы Дмитрий");
+        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("25.01.2024");
+        $x("//span[@data-test-id='name']//input").setValue("Иванов-оглы Дмитрий");
         $x("//span[@data-test-id='phone']//input").setValue("879200077999");
         $x("//label[@data-test-id='agreement']").click();
         $x("//span[@class='button__text']").click();
@@ -219,7 +203,7 @@ public class RegistrationTestNegative {
     void registeringUserWithAnInvalidPhone() {
         $x("//span[@data-test-id='city']//input").setValue("Москва");
         $x("//span[@data-test-id='date']//input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
-        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("20.01.2024");
+        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("27.01.2024");
         $x("//span[@data-test-id='name']//input").setValue("Дмитрий");
         $x("//span[@data-test-id='phone']//input").setValue("+792000779991");
         $x("//label[@data-test-id='agreement']").click();
@@ -234,7 +218,7 @@ public class RegistrationTestNegative {
     void userRegistrationWithoutAgreeingToTheTermsAndConditions() {
         $x("//span[@data-test-id='city']//input").setValue("Москва");
         $x("//span[@data-test-id='date']//input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
-        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("20.01.2024");
+        $x("//span[@data-test-id='date'] //input[@class='input__control']").sendKeys("28.01.2024");
         $x("//span[@data-test-id='name']//input").setValue("Дмитрий");
         $x("//span[@data-test-id='phone']//input").setValue("+79200077999");
         $x("//span[@class='button__text']").click();
